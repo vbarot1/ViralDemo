@@ -27,7 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     private void initialListener() {
+//bt1.setOnClickListener(new View.OnClickListener() {
+        //@Override
+        //public void onClick (View v) {
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
