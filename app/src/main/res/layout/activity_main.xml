@@ -72,7 +72,7 @@
       android:layout_weight = "1"
       android:layout_margin="6dp"
       android:background="@color/white"/>
-
+<!-- each time onClick is used, java searches all documents for it -->
   <ImageButton
       android:id="@+id/bt3"
       android:layout_width="0dp"
