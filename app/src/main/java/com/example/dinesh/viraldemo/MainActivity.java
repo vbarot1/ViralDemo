@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Button2 was clicked", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(),ViewPagerActivity.class);
+                startActivity(intent);
             }
         });
         bt3.setOnClickListener(new View.OnClickListener() {
