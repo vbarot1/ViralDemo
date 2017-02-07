@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.dinesh.viraldemo.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,25 +19,30 @@ import java.util.List;
 public class ListViewAdapter extends BaseAdapter {
 
     private final LayoutInflater mInflater;
+    private ArrayList<String> listResult;
     private Context mContext;
 
-    public ListViewAdapter(Context context) {
+    public ListViewAdapter(Context context, ArrayList<String> listResult) {
         this.mContext = context;
+        this.listResult = listResult;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
+
+
     @Override
     public int getCount() {
-        return 100;
+        return listResult.size();
+         // return 20;
     }
 
     @Override
-    public Object getItem(int i) {
+    public Object getItem(int position) {
         return null;
     }
 
     @Override
-    public long getItemId(int i) {
+    public long getItemId(int position) {
         return 0;
     }
 //convertView is the old View, everytime calls getView, goes to convertView
@@ -62,7 +68,7 @@ public class ListViewAdapter extends BaseAdapter {
         }
         holder.textView1.setText(String.valueOf(position));  //if message is sent from outside, icon is on left side
         holder.textView3.setText(String.valueOf(position)); //else righrt side
-
+        holder.textView2.setText(listResult.get(position));
         if(position % 2 == 0 ){
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
