@@ -108,7 +108,7 @@ public class DialogActivity extends BaseActivity {
                 }
                 }
             progressDialog.cancel();
-            toastShort("Download success");
+
             }
     }).start();
 }
@@ -120,7 +120,7 @@ public class DialogActivity extends BaseActivity {
         waitingDialog = new ProgressDialog(this);
         waitingDialog.setTitle("Downloading");
         waitingDialog.setMessage("Waiting....");
-        waitingDialog.setCancelable(false);
+        waitingDialog.setCancelable(true);
         waitingDialog.show();
         waitingDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -136,7 +136,7 @@ public class DialogActivity extends BaseActivity {
     ArrayList<Integer> choices = new ArrayList<>();
     private void multiChoiceDialog() {
         final String[] items = {"item1", "item2", "item3", "item4"};
-        final boolean initChoiceSets[] = {false, true, false, false};
+        final boolean initChoiceSets[] = {false, false, false, false};
         choices.clear();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("I'm a multi-choice Dialog");
@@ -245,9 +245,9 @@ public class DialogActivity extends BaseActivity {
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedID) {
-                toastShort("You checked the RadioButton" + checkedID);
-                checkedID = checkedID;
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                toastShort("You checked the RadioButton" + checkedId);
+                checkedID = checkedId;
             }
 
 
