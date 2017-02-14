@@ -27,17 +27,17 @@
         android:textColor= "@color/white"/>
 
       <ImageButton
-          android:src="@drawable/menu"
           android:layout_width="48dp"
           android:layout_height="48dp"
           android:background="@android:color/transparent"
           android:layout_marginLeft="12dp"
+          android:src="@drawable/menu"
           android:layout_centerVertical="true"
           android:layout_alignParentLeft="true"/>
 
       <ImageButton
           android:layout_width="48dp"
-          android:layout_height="48dp"
+            android:layout_height="48dp"
           android:background="@drawable/bt_style_xml"
           android:layout_centerVertical="true"
           android:layout_marginRight="12dp"
@@ -57,20 +57,20 @@
 
       <ImageButton
           android:id="@+id/bt1"
-          android:onClick="onClick"
           android:layout_width="0dp"
           android:layout_height="match_parent"
           android:layout_weight = "1"
           android:layout_margin="6dp"
           android:background="@color/white"/>
-  <ImageButton
-      android:id="@id/tool_bar"
+
+     <ImageButton
+      android:id="@+id/bt2"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight = "1"
       android:layout_margin="6dp"
       android:background="@color/white"
-      android:onClick="onClick" />
+       />
 
 
 <!-- each time onClick is used, java searches all documents for it -->
