@@ -44,7 +44,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         UtilLog.logD("ViewPagerActivity" ," value is" + message);
         UtilLog.logD("ViewPagerActivity", "number is" + number);
-        UtilLog.logD("ViewPagerActivity", "fake number is" + message);
+        UtilLog.logD("ViewPagerActivity", "fake number is" + String.valueOf(fakeNumber));
         UtilLog.logD("ViewPagerActivity", "book author is: " + book.getAuthor());
         init();
     }
