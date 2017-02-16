@@ -1,20 +1,20 @@
 package com.example.dinesh.viraldemo;
 
 //import android.support.design.widget.TabLayout;
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.dinesh.viraldemo.Fragment.ContentFragment;
 import com.example.dinesh.viraldemo.Fragment.HistoryFragment;
 import com.example.dinesh.viraldemo.Fragment.Login;
-import com.example.dinesh.viraldemo.adapter.ListViewAdapter;
 import com.example.dinesh.viraldemo.adapter.ViewPagerAdapter;
+import com.example.dinesh.viraldemo.bean.Book;
+import com.example.dinesh.viraldemo.util.UtilLog;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,23 @@ public class ViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        // listResult = new ArrayList<String>();
         setContentView(R.layout.activity_view_pager);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String message = intent.getStringExtra("key");
+        int number = bundle.getInt("Integer", 0);
+        int fakeNumber = bundle.getInt("fake", 0);
+        Book book = (Book) bundle.getSerializable("book");
+
+        UtilLog.logD("ViewPagerActivity" ," value is" + message);
+        UtilLog.logD("ViewPagerActivity", "number is" + number);
+        UtilLog.logD("ViewPagerActivity", "fake number is" + message);
+        UtilLog.logD("ViewPagerActivity", "book author is: " + book.getAuthor());
         init();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void init() {
@@ -53,7 +69,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
   //      ListViewAdapter listViewAdapter = new ListViewAdapter(this, listResult);
         //listView.addHeaderView(ViewHeader);
-        
+
 
 
 
@@ -67,5 +83,13 @@ public class ViewPagerActivity extends AppCompatActivity {
        tabLayout.setupWithViewPager(viewPager);
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("message", "ViewPager");
+        setResult(RESULT_OK,intent);
+        super.onBackPressed();
     }
 }

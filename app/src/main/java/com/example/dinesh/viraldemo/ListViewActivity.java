@@ -1,7 +1,8 @@
 package com.example.dinesh.viraldemo;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -62,7 +63,6 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         tv.setGravity(Gravity.CENTER);
         listView.addFooterView(tv);
         listView.setAdapter(listViewAdapter);
-
         listView.setOnItemClickListener(this); //causes click to happen here
     }
 //when numbers are clicked, makes popup say which position was clicked at
@@ -71,4 +71,13 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         Toast.makeText(this,"listView was clicked at position:" +position, Toast.LENGTH_LONG).show();
         Log.d("testListView", String.valueOf(position));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("message", "ViewPager");
+        setResult(RESULT_OK,intent);
+        super.onBackPressed();
+    }
+
 }
