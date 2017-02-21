@@ -13,15 +13,24 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
+    //resources: stores stuff like layout file, etc.
+
+
     private ImageButton bt1;
     private ImageButton bt3;
 
     @OnClick(R.id.bt2)
     public void button2Click() {
+        Bundle bundle = new Bundle();
         Intent intent = new Intent(this, DialogActivity.class);
+        intent.putExtra("Message","Double");
+        intent.putExtras(bundle);
         startActivityForResult(intent, 2);
     }
+//onCreate will be invoked by a system when the acitivty wants to show on the screen. Everytime activity is shown, the method will be
+    //the first one called by the system
 
+    //In the onCreate() method, you perform basic application startup logic that should happen only once for the entire life of the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +39,10 @@ public class MainActivity extends BaseActivity {
         initialListener();
         ButterKnife.bind(this);
     }
+
+    //The onStart call makes the activity visible to the user, as the app prepares for the activity to enter the foregroud and become interactive
+    //the onStart method completely very quickly and, as with the Created state, the activity does not stay resident in the Started state
+
 
     @Override
     protected void onStart() {

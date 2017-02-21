@@ -60,6 +60,8 @@ public class ViewPagerActivity extends AppCompatActivity {
         fragmentList.add(new ContentFragment());
         fragmentList.add(new HistoryFragment());
         fragmentList.add(new Login());
+
+
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         viewPagerAdapter.setContent(fragmentList);
         viewPager.setAdapter(viewPagerAdapter);
