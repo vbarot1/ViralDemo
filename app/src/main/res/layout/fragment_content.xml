@@ -5,6 +5,7 @@
     android:background="@android:color/holo_orange_dark"
     tools:context="com.example.dinesh.viraldemo.Fragment.ContentFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
