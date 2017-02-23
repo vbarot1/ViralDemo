@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
               //  Toast.makeText(view.getContext(), "Button2 was clicked", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(view.getContext(),ViewPagerActivity.class);
+                Intent intent = new Intent(view.getContext(),ActivityA.class);
                 intent.putExtra("key", "value");
                 Bundle bundle = new Bundle();
                 bundle.putInt("Integer", 12345);

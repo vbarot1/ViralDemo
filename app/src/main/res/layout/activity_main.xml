@@ -88,6 +88,15 @@
       android:layout_gravity="center_vertical"
       android:background="@color/white"/>
 
+      <ImageButton
+          android:id="@+id/bt4"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight = "1"
+          android:layout_margin="6dp"
+          android:layout_gravity="center_vertical"
+          android:background="@color/white"/>
+
 </LinearLayout>
   <ListView
       android:layout_above="@+id/tool_bar"
