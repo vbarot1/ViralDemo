@@ -20,6 +20,11 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt3;
     private ImageButton bt4;
 
+    @OnClick(R.id.main_timer_bt)
+    public void toTimer(){
+        toActivity(TimerActivity.class);
+    }
+
     @OnClick(R.id.bt2)
     public void button2Click() {
         Bundle bundle = new Bundle();
@@ -71,7 +76,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
               //  Toast.makeText(view.getContext(), "Button2 was clicked", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(view.getContext(),ActivityA.class);
+                Intent intent = new Intent(view.getContext(),ViewPagerActivity.class);
                 intent.putExtra("key", "value");
                 Bundle bundle = new Bundle();
                 bundle.putInt("Integer", 12345);
