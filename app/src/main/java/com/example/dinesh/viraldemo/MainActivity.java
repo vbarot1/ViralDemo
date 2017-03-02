@@ -20,6 +20,16 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt3;
     private ImageButton bt4;
 
+    @OnClick(R.id.main_anim_bt)
+    public void toAnimation() {
+        toActivity(AnimationActivity.class);
+    }
+
+    @OnClick(R.id.bt4)
+    public void toActivityA() {
+        toActivity(ActivityA.class);
+    }
+
     @OnClick(R.id.main_timer_bt)
     public void toTimer(){
         toActivity(TimerActivity.class);

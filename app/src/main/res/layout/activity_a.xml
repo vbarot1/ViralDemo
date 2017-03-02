@@ -13,6 +13,18 @@
         android:text="A"
         android:textSize="450sp"
         />
+<!-- Stuff he wrote for new button -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:text="A"
+        android:layout_centerHorizontal="true"
+    android:textSize="66sp"
+    android:gravity="center"
+    android:layout_alignParentTop="true"
+        />
+
+    <!-- -->
 
     <LinearLayout
         android:id="@+id/toolbar"

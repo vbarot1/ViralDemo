@@ -34,17 +34,9 @@
           android:layout_height="48dp"
           android:background="@android:color/transparent"
           android:layout_marginLeft="12dp"
-          android:src="@drawable/menu"
+          android:src="@drawable/bt_style"
           android:layout_centerVertical="true"
           android:layout_alignParentLeft="true"/>
-
-      <ImageButton
-          android:layout_width="48dp"
-            android:layout_height="48dp"
-          android:background="@drawable/bt_style_xml"
-          android:layout_centerVertical="true"
-          android:layout_marginRight="12dp"
-          android:layout_alignParentRight="true"/>
 
     <ImageButton
         android:id="@+id/bt4"
@@ -55,6 +47,17 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         />
+
+    <!--<ImageButton
+        android:id="@+id/main_right_bt"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bt_style_xml"
+        android:layout_marginRight="12dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        />-->
+
 
   </RelativeLayout>
 
@@ -116,7 +119,19 @@
       android:layout_width="100dp"
       android:layout_height="60dp"
       android:text="Timer"
-      android:textAllCaps="false" android:textSize="20sp"></Button>
+      android:textAllCaps="false" android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/main_anim_bt"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Animation"
+        android:layout_marginLeft="100dp"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        />
+
       </FrameLayout>
 
 
