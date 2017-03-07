@@ -2,16 +2,21 @@ package com.example.dinesh.viraldemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.example.dinesh.viraldemo.bean.Book;
 import com.example.dinesh.viraldemo.util.UtilLog;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnTouchListener, View.OnClickListener {
 
     //resources: stores stuff like layout file, etc.
 
@@ -19,6 +24,13 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt1;
     private ImageButton bt3;
     private ImageButton bt4;
+    private ScaleGestureDetector mGestureDetector;
+
+   @BindView(R.id.main_fl)
+   FrameLayout fl;
+
+    @OnClick(R.id.animator_bt)
+    public void toAnimator() { toActivity(AnimatorActivity.class);}
 
     @OnClick(R.id.main_anim_bt)
     public void toAnimation() {
@@ -54,6 +66,8 @@ public class MainActivity extends BaseActivity {
         initialView();
         initialListener();
         ButterKnife.bind(this);
+        mGestureDetector = new ScaleGestureDetector(this, new simpleGestureListener());
+        fl.setOnClickListener(this);
     }
 
     //The onStart call makes the activity visible to the user, as the app prepares for the activity to enter the foregroud and become interactive
@@ -151,5 +165,74 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return mGestureDetector.onTouchEvent(event);
+    }
 
+    private class simpleGestureListener extends
+            GestureDetector.SimpleOnGestureListener implements ScaleGestureDetector.OnScaleGestureListener {
+
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            return false;
+        }
+
+        @Override
+        public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            return false;
+        }
+
+        @Override
+        public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+
+        }
+    }
+
+    /* onDown->onShowPress->onLongPress*/
+    public boolean onDown(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onDown");
+        toastShort("onDown");
+        return true;
+    }
+
+    public void onShowPress(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onShowPress");
+        toastShort("onShowPress");
+    }
+
+    public void onLongPress(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onLongPress");
+        toastShort("onLongPress");
+    }
+
+    public boolean onSingleTapUp(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onSingleTapUp");
+        toastShort("onSingleTapUp");
+        return true;
+    }
+
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onSingleTapConfirmed");
+        toastShort("onSingleTapConfirmed");
+        return true;
+    }
+
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        UtilLog.logD("MyGesture", "onScroll: " + (e2.getX() - e1.getX()) + " " + distanceX);
+        toastShort("onScroll");
+        return true;
+    }
+
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        UtilLog.logD("MyGesture", "onFling");
+        toastShort("onFling");
+        return true;
+    }
+
+    public boolean onDoubleTap(MotionEvent e) {
+        UtilLog.logD("MyGesture", "onDoubleTap");
+        toastShort("onDoubleTap");
+        return true;
+    }
 }

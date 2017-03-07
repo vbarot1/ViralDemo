@@ -21,6 +21,7 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".DialogActivity" />
         <activity android:name=".AnimationActivity"/>
+        <activity android:name=".AnimatorActivity"/>
         <activity android:name=".ActivityA"
             android:launchMode="standard"/>
         <activity android:name=".ActivityB"

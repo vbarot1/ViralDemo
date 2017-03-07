@@ -13,7 +13,7 @@
 
 
     tools:context="com.example.dinesh.viraldemo.MainActivity">
-:
+
   <RelativeLayout
       android:id="@+id/title_bar"
     android:layout_width = "match_parent"
@@ -106,12 +106,12 @@
 </LinearLayout>
 
   <FrameLayout
+      android:id="@+id/main_fl"
       android:layout_below="@id/title_bar"
       android:layout_above="@id/tool_bar"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:background="@color/white">
-
 
 
     <Button
@@ -132,6 +132,15 @@
         android:textSize="15sp"
         />
 
+    <Button
+        android:id="@+id/animator_bt"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Animator"
+        android:layout_marginLeft="200dp"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        />
       </FrameLayout>
 
 
