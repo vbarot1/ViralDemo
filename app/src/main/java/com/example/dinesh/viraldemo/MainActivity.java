@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -24,7 +23,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener, 
     private ImageButton bt1;
     private ImageButton bt3;
     private ImageButton bt4;
-    private ScaleGestureDetector mGestureDetector;
+    private GestureDetector mGestureDetector;
 
    @BindView(R.id.main_fl)
    FrameLayout fl;
@@ -66,7 +65,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener, 
         initialView();
         initialListener();
         ButterKnife.bind(this);
-        mGestureDetector = new ScaleGestureDetector(this, new simpleGestureListener());
+        mGestureDetector = new GestureDetector(this, new simpleGestureListener());
         fl.setOnClickListener(this);
     }
 
@@ -171,68 +170,54 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener, 
     }
 
     private class simpleGestureListener extends
-            GestureDetector.SimpleOnGestureListener implements ScaleGestureDetector.OnScaleGestureListener {
+            GestureDetector.SimpleOnGestureListener {
 
-        @Override
-        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            return false;
+
+        /* onDown->onShowPress->onLongPress*/
+        public boolean onDown(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onDown");
+            toastShort("onDown");
+            return true;
         }
 
-        @Override
-        public boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            return false;
+        public void onShowPress(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onShowPress");
+            toastShort("onShowPress");
         }
 
-        @Override
-        public void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-
+        public void onLongPress(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onLongPress");
+            toastShort("onLongPress");
         }
-    }
 
-    /* onDown->onShowPress->onLongPress*/
-    public boolean onDown(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onDown");
-        toastShort("onDown");
-        return true;
-    }
+        public boolean onSingleTapUp(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onSingleTapUp");
+            toastShort("onSingleTapUp");
+            return true;
+        }
 
-    public void onShowPress(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onShowPress");
-        toastShort("onShowPress");
-    }
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onSingleTapConfirmed");
+            toastShort("onSingleTapConfirmed");
+            return true;
+        }
 
-    public void onLongPress(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onLongPress");
-        toastShort("onLongPress");
-    }
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            UtilLog.logD("MyGesture", "onScroll: " + (e2.getX() - e1.getX()) + " " + distanceX);
+            toastShort("onScroll");
+            return true;
+        }
 
-    public boolean onSingleTapUp(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onSingleTapUp");
-        toastShort("onSingleTapUp");
-        return true;
-    }
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            UtilLog.logD("MyGesture", "onFling");
+            toastShort("onFling");
+            return true;
+        }
 
-    public boolean onSingleTapConfirmed(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onSingleTapConfirmed");
-        toastShort("onSingleTapConfirmed");
-        return true;
-    }
-
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        UtilLog.logD("MyGesture", "onScroll: " + (e2.getX() - e1.getX()) + " " + distanceX);
-        toastShort("onScroll");
-        return true;
-    }
-
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        UtilLog.logD("MyGesture", "onFling");
-        toastShort("onFling");
-        return true;
-    }
-
-    public boolean onDoubleTap(MotionEvent e) {
-        UtilLog.logD("MyGesture", "onDoubleTap");
-        toastShort("onDoubleTap");
-        return true;
+        public boolean onDoubleTap(MotionEvent e) {
+            UtilLog.logD("MyGesture", "onDoubleTap");
+            toastShort("onDoubleTap");
+            return true;
+        }
     }
 }
