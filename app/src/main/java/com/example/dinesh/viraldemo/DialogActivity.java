@@ -28,6 +28,7 @@ import butterknife.OnClick;
  * Created by Dinesh on 2/13/2017.
  */
 
+
 public class DialogActivity extends BaseActivity {
 
     private int checkedID;
@@ -88,15 +89,16 @@ public class DialogActivity extends BaseActivity {
         }
     }
 
+
     private void customDialog() {
         final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener() {
-        @Override
-                public void onClickListener () {
-            Intent intent = new Intent();
-            intent.putExtra("message", "ViewPager");
-            setResult(RESULT_OK,intent);
-            finish();
-        }
+            @Override
+            public void onClickListener () {
+                Intent intent = new Intent();
+                intent.putExtra("message", "ViewPager");
+                setResult(RESULT_OK,intent);
+                finish();
+            }
         });
         dialog.show();
     }
@@ -108,11 +110,11 @@ public class DialogActivity extends BaseActivity {
         inputDialog.setTitle("I'm an input Dialog").setView(editText);
         inputDialog.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                toastShort(editText.getText().toString());
-                }
-    });
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        toastShort(editText.getText().toString());
+                    }
+                });
         inputDialog.setNegativeButton("Cancel", null).show();
     }
 
@@ -128,31 +130,31 @@ public class DialogActivity extends BaseActivity {
         /*
         New Threat, Every 100ms, progress + 1
          */
-    new Thread(new Runnable() {
-        @Override
-        public void run() {
-            int progress = 0;
-            while(progress < MAX_PROGRESS){
-                try {
-                    Thread.sleep(100);
-                    progress++;
-                    progressDialog.setProgress(progress);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int progress = 0;
+                while(progress < MAX_PROGRESS){
+                    try {
+                        Thread.sleep(100);
+                        progress++;
+                        progressDialog.setProgress(progress);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
                 }
-                }
-            //toastShort("Downloading success");
-            Bundle bundle = new Bundle();
-            bundle.putString("msg","Download success");
-            Message msg = Message.obtain();
-            msg.what = DIALOG;
-            msg.setData(bundle);
-            mHandler.sendMessage(msg);
-            progressDialog.cancel();
+                //toastShort("Downloading success");
+                Bundle bundle = new Bundle();
+                bundle.putString("msg","Download success");
+                Message msg = Message.obtain();
+                msg.what = DIALOG;
+                msg.setData(bundle);
+                mHandler.sendMessage(msg);
+                progressDialog.cancel();
 
             }
-    }).start();
-}
+        }).start();
+    }
 
 
 
@@ -224,7 +226,7 @@ public class DialogActivity extends BaseActivity {
         builder.setSingleChoiceItems(items, choice, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-        choice = which;
+                choice = which;
             }
         });
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

@@ -20,16 +20,20 @@
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".DialogActivity" />
-        <activity android:name=".AnimationActivity"/>
-        <activity android:name=".AnimatorActivity"/>
-        <activity android:name=".ActivityA"
-            android:launchMode="standard"/>
-        <activity android:name=".ActivityB"
-            android:launchMode="singleTop"/>
-        <activity android:name=".ActivityC"
-            android:launchMode="singleTask"/>
-        <activity android:name=".ActivityD"
-            android:launchMode="singleInstance"/>
+        <activity android:name=".AnimationActivity" />
+        <activity android:name=".AnimatorActivity" />
+        <activity
+            android:name=".ActivityA"
+            android:launchMode="standard" />
+        <activity
+            android:name=".ActivityB"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ActivityC"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ActivityD"
+            android:launchMode="singleInstance" />
         +
         +
         + >
@@ -42,6 +46,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".TimerActivity" />
+        <activity android:name=".CustomDialog"></activity>
     </application>
 
 </manifest>

@@ -28,6 +28,17 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener, 
    @BindView(R.id.main_fl)
    FrameLayout fl;
 
+    @OnClick (R.id.custom_bt)
+    public void toCustomDialog() {
+
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, CustomDialog.class);
+       /* intent.putExtra("Message","Double");
+        intent.putExtras(bundle);*/
+        startActivityForResult(intent, 2);
+
+    }
+
     @OnClick(R.id.animator_bt)
     public void toAnimator() { toActivity(AnimatorActivity.class);}
 
